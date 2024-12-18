@@ -60,6 +60,8 @@ public class Player : MonoBehaviour
 
     private void HandleJumping()
     {
+        // add if rb.velocity.y>mathf.epsilon
+        // set is grounded = false
         if (isGrounded && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)))
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
