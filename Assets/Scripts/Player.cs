@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private Animator animator;
 
     [Header("Movement")]
     private float horizontalMovement;
@@ -15,6 +16,8 @@ public class Player : MonoBehaviour
 
     [Header("Jumping")]
     [SerializeField] private float jumpPower = 20f;
+    [SerializeField] private int maxJumps = 2;
+    [SerializeField] private int jumpsRemaining;
 
 
     [Header("Ground Checks")]
@@ -22,15 +25,93 @@ public class Player : MonoBehaviour
     public Vector2 groundCheckSize = new Vector2(0.5f, 0.05f);
     public LayerMask groundLayer;
 
+    [Header("Gravity")]
+    [SerializeField] private float baseGravity;
+    [SerializeField] private float maxFallSpeed = 18f;
+    [SerializeField] private float fallSpeedMultiplier = 2f;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
-    private void FixedUpdate()
+    private void Start()
+    {
+        baseGravity = rb.gravityScale;
+    }
+
+    private void Update()
     {
         rb.linearVelocity = new Vector2(horizontalMovement * moveSpeed, rb.linearVelocity.y);
+
+        GroundCheck();
+        HandlingGravity();
+        HandleAnimations();
+
+        Flip();
+
+        Debug.Log($"Horizontal movement: {horizontalMovement}");
+    }
+
+    private void HandlingGravity()
+    {
+        if (rb.linearVelocity.y < 0)
+        {
+            rb.gravityScale = baseGravity * fallSpeedMultiplier; // fall faster
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Max(rb.linearVelocity.y, -maxFallSpeed)); // cap the fall speed
+        }
+        else
+        {
+            rb.gravityScale = baseGravity;
+        }
+    }
+
+    private void HandleAnimations()
+    {
+        // animator.SetFloat(Constants.anim_string_SPEED, horizontalMovement);
+        // animator.SetBool(Constants.anim_string_ISGROUNDED, IsGrounded());
+        // animator.SetFloat(Constants.anim_string_Y_VELOCITY, rb.linearVelocity.y);
+        // animator.SetBool(Constants.anim_string_ISJUMPING, rb.linearVelocity.y > 0 && jumpsRemaining < maxJumps);
+        // animator.SetBool(Constants.anim_string_ISFALLING, rb.linearVelocity.y < 0);
+
+        bool isGrounded = Physics2D.OverlapBox(groundCheckPosition.position, groundCheckSize, 0, groundLayer);
+
+        void leftRightAnim()
+        {
+            if (horizontalMovement != 0)
+            {
+                animator.SetBool(Constants.anim_string_ISMOVING, true);
+            }
+            else
+            {
+                animator.SetBool(Constants.anim_string_ISMOVING, false);
+            }
+        }
+
+        void jumpAnim()
+        {
+            // if (rb.linearVelocity.y > 0 && jumpsRemaining < maxJumps)
+            // {
+            //     animator.SetTrigger(Constants.anim_string_trigger_JUMP);
+            // }
+            if (rb.linearVelocity.y < 0)
+            {
+                animator.SetBool(Constants.anim_string_ISFALLING, true);
+            }
+        }
+
+        void isGroundedCheckAnim()
+        {
+            animator.SetFloat(Constants.anim_string_Y_VELOCITY, rb.linearVelocity.y);
+
+            animator.SetBool(Constants.anim_string_ISGROUNDED, isGrounded);
+        }
+
+        leftRightAnim();
+        jumpAnim();
+        isGroundedCheckAnim();
+
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -40,33 +121,44 @@ public class Player : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (IsGrounded())
+        if (jumpsRemaining > 0)
         {
             if (context.performed)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
+                animator.SetTrigger(Constants.anim_string_trigger_JUMP);
+                jumpsRemaining--;
             }
             else if (context.canceled)
             {
                 // NOTE we are like doing a half jump when we dont fully press,
                 // Need to change the number to something dynamic like how much we press the button
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower * 0.5f);
+                jumpsRemaining--;
             }
         }
     }
 
-    private bool IsGrounded()
+    private void Flip()
+    {
+        if (horizontalMovement > 0)
+        {
+            transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
+        }
+        else if (horizontalMovement < 0)
+        {
+            transform.localScale = new Vector2(-Mathf.Abs(transform.localScale.x), transform.localScale.y);
+        }
+    }
+
+    private void GroundCheck()
     {
         if (Physics2D.OverlapBox(groundCheckPosition.position, groundCheckSize, 0, groundLayer))
         {
-            return true;
+            jumpsRemaining = maxJumps;
         }
-        return false;
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(groundCheckPosition.position, groundCheckSize);
-    }
+
+
 }
