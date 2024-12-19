@@ -5,110 +5,68 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float moveSpeed;
-    [SerializeField] float jumpPower;
-    [SerializeField] float groundContactCount = 0;
-
-    private bool isGrounded;
-
-    // Refrences
     private Rigidbody2D rb;
-    private Animator animator;
+
+    [Header("Movement")]
+    private float horizontalMovement;
+    [SerializeField] private float moveSpeed;
+
+
+
+    [Header("Jumping")]
+    [SerializeField] private float jumpPower = 20f;
+
+
+    [Header("Ground Checks")]
+    public Transform groundCheckPosition;
+    public Vector2 groundCheckSize = new Vector2(0.5f, 0.05f);
+    public LayerMask groundLayer;
+
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponentInChildren<Animator>();
-    }
-
-    private void Update()
-    {
-        Debug.Log($"IsGrounded: {isGrounded}");
     }
 
     private void FixedUpdate()
     {
-        HandlePlayerMovement();
-        HandleJumping();
-
-        HandleFlipping();
-        HandleAnimations();
+        rb.linearVelocity = new Vector2(horizontalMovement * moveSpeed, rb.linearVelocity.y);
     }
 
-
-
-    private void HandlePlayerMovement()
+    public void Move(InputAction.CallbackContext context)
     {
-        float moveInput = 0f;
-
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            moveInput = moveSpeed;
-            animator.SetBool(Constants.IS_RUNNING_ANIM_STRING, true);
-        }
-        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            moveInput = -moveSpeed;
-            animator.SetBool(Constants.IS_RUNNING_ANIM_STRING, true);
-        }
-        else
-        {
-            moveInput = 0f;
-            animator.SetBool(Constants.IS_RUNNING_ANIM_STRING, false);
-        }
-
-        rb.linearVelocity = new Vector2(moveInput, rb.linearVelocity.y);
+        horizontalMovement = context.ReadValue<Vector2>().x;
     }
 
-    private void HandleJumping()
+    public void Jump(InputAction.CallbackContext context)
     {
-        // add if rb.velocity.y>mathf.epsilon
-        // set is grounded = false
-        if (isGrounded && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)))
+        if (IsGrounded())
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
-            isGrounded = false;
-        }
-    }
-
-    private void HandleAnimations()
-    {
-        animator.SetFloat(Constants.Y_VELOCITY_ANIM_STRING, rb.linearVelocity.y);
-        animator.SetBool(Constants.IS_GROUNDED_ANIM_STRING, isGrounded);
-    }
-
-    private void HandleFlipping()
-    {
-        if (rb.linearVelocity.x > 0)
-        {
-            transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
-        }
-        else if (rb.linearVelocity.x < 0)
-        {
-            transform.localScale = new Vector2(-Mathf.Abs(transform.localScale.x), transform.localScale.y);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag(Constants.GROUND_TAG) && rb.linearVelocity.y <= 0)
-        {
-            groundContactCount++;
-            isGrounded = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag(Constants.GROUND_TAG))
-        {
-            groundContactCount--;
-            if (groundContactCount <= 0)
+            if (context.performed)
             {
-                isGrounded = false;
-                groundContactCount = 0;
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
+            }
+            else if (context.canceled)
+            {
+                // NOTE we are like doing a half jump when we dont fully press,
+                // Need to change the number to something dynamic like how much we press the button
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower * 0.5f);
             }
         }
     }
 
+    private bool IsGrounded()
+    {
+        if (Physics2D.OverlapBox(groundCheckPosition.position, groundCheckSize, 0, groundLayer))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(groundCheckPosition.position, groundCheckSize);
+    }
 }
