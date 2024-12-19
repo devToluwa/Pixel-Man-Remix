@@ -69,11 +69,6 @@ public class Player : MonoBehaviour
 
     private void HandleAnimations()
     {
-        // animator.SetFloat(Constants.anim_string_SPEED, horizontalMovement);
-        // animator.SetBool(Constants.anim_string_ISGROUNDED, IsGrounded());
-        // animator.SetFloat(Constants.anim_string_Y_VELOCITY, rb.linearVelocity.y);
-        // animator.SetBool(Constants.anim_string_ISJUMPING, rb.linearVelocity.y > 0 && jumpsRemaining < maxJumps);
-        // animator.SetBool(Constants.anim_string_ISFALLING, rb.linearVelocity.y < 0);
 
         bool isGrounded = Physics2D.OverlapBox(groundCheckPosition.position, groundCheckSize, 0, groundLayer);
 
@@ -91,13 +86,13 @@ public class Player : MonoBehaviour
 
         void jumpAnim()
         {
-            // if (rb.linearVelocity.y > 0 && jumpsRemaining < maxJumps)
-            // {
-            //     animator.SetTrigger(Constants.anim_string_trigger_JUMP);
-            // }
             if (rb.linearVelocity.y < 0)
             {
-                animator.SetBool(Constants.anim_string_ISFALLING, true);
+                animator.SetFloat(Constants.anim_string_ISFALLING, rb.linearVelocity.y);
+            }
+            else if (isGrounded)
+            {
+                animator.SetBool(Constants.anim_string_ISFALLING, false);
             }
         }
 
