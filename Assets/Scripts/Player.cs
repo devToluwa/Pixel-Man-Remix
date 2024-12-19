@@ -1,3 +1,4 @@
+// i hate my life
 using UnityEngine;
 using UnityEngine.InputSystem;
 
