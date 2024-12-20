@@ -13,7 +13,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Wall
   - 
   - 
   - 
@@ -50,6 +50,12 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3555302709
+    locked: 0
+  - name: Wall
+    uniqueID: 1516070051
+    locked: 0
+  - name: Fruit
+    uniqueID: 1558923687
     locked: 0
   m_RenderingLayers:
   - Default

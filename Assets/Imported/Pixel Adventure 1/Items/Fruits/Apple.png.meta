@@ -85,7 +85,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -99,7 +99,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,7 +123,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -203,10 +203,10 @@ TextureImporter:
       name: Apple_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 10
-        width: 14
-        height: 16
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,10 +225,10 @@ TextureImporter:
       name: Apple_1
       rect:
         serializedVersion: 2
-        x: 41
-        y: 10
-        width: 14
-        height: 16
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -247,10 +247,10 @@ TextureImporter:
       name: Apple_2
       rect:
         serializedVersion: 2
-        x: 73
-        y: 10
-        width: 14
-        height: 16
+        x: 64
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,10 +269,10 @@ TextureImporter:
       name: Apple_3
       rect:
         serializedVersion: 2
-        x: 105
-        y: 10
-        width: 14
-        height: 16
+        x: 96
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -291,10 +291,10 @@ TextureImporter:
       name: Apple_4
       rect:
         serializedVersion: 2
-        x: 137
-        y: 10
-        width: 14
-        height: 16
+        x: 128
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -313,10 +313,10 @@ TextureImporter:
       name: Apple_5
       rect:
         serializedVersion: 2
-        x: 169
-        y: 9
-        width: 14
-        height: 18
+        x: 160
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -335,10 +335,10 @@ TextureImporter:
       name: Apple_6
       rect:
         serializedVersion: 2
-        x: 202
-        y: 8
-        width: 12
-        height: 20
+        x: 192
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -357,10 +357,10 @@ TextureImporter:
       name: Apple_7
       rect:
         serializedVersion: 2
-        x: 234
-        y: 8
-        width: 12
-        height: 20
+        x: 224
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -379,10 +379,10 @@ TextureImporter:
       name: Apple_8
       rect:
         serializedVersion: 2
-        x: 266
-        y: 8
-        width: 12
-        height: 20
+        x: 256
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -401,10 +401,10 @@ TextureImporter:
       name: Apple_9
       rect:
         serializedVersion: 2
-        x: 297
-        y: 9
-        width: 14
-        height: 18
+        x: 288
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -423,10 +423,10 @@ TextureImporter:
       name: Apple_10
       rect:
         serializedVersion: 2
-        x: 329
-        y: 9
-        width: 14
-        height: 18
+        x: 320
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -445,10 +445,10 @@ TextureImporter:
       name: Apple_11
       rect:
         serializedVersion: 2
-        x: 360
-        y: 10
-        width: 16
-        height: 16
+        x: 352
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -467,10 +467,10 @@ TextureImporter:
       name: Apple_12
       rect:
         serializedVersion: 2
-        x: 391
-        y: 11
-        width: 18
-        height: 14
+        x: 384
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -489,10 +489,10 @@ TextureImporter:
       name: Apple_13
       rect:
         serializedVersion: 2
-        x: 423
-        y: 11
-        width: 18
-        height: 14
+        x: 416
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -511,10 +511,10 @@ TextureImporter:
       name: Apple_14
       rect:
         serializedVersion: 2
-        x: 455
-        y: 11
-        width: 18
-        height: 14
+        x: 448
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -533,10 +533,10 @@ TextureImporter:
       name: Apple_15
       rect:
         serializedVersion: 2
-        x: 488
-        y: 10
-        width: 16
-        height: 16
+        x: 480
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -555,10 +555,10 @@ TextureImporter:
       name: Apple_16
       rect:
         serializedVersion: 2
-        x: 520
-        y: 10
-        width: 16
-        height: 16
+        x: 512
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -577,7 +577,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6f3a1c553713dc04e9dbcfcb33fe4b84
     internalID: 0
     vertices: []
     indices: 
@@ -586,7 +586,24 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Apple_0: 7293598183456022363
+      Apple_1: 3211865404380153573
+      Apple_10: 1535906679059638393
+      Apple_11: -6207369124864647917
+      Apple_12: 7209791866757004406
+      Apple_13: -1462588236305530756
+      Apple_14: 4023135878370671054
+      Apple_15: -337911150936919937
+      Apple_16: 9139289913481491577
+      Apple_2: 4808522734667448011
+      Apple_3: -8577097333041121892
+      Apple_4: 1419576285154770477
+      Apple_5: -7706788487438311687
+      Apple_6: 8638710384840876012
+      Apple_7: -4689406079702324653
+      Apple_8: -4804661220611782958
+      Apple_9: 542562350195365616
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

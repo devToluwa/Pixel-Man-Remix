@@ -49,7 +49,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -63,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -87,7 +87,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -167,10 +167,10 @@ TextureImporter:
       name: Wall Jump (32x32)_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 1
-        width: 24
-        height: 26
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +189,10 @@ TextureImporter:
       name: Wall Jump (32x32)_1
       rect:
         serializedVersion: 2
-        x: 35
-        y: 1
-        width: 24
-        height: 26
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -211,10 +211,10 @@ TextureImporter:
       name: Wall Jump (32x32)_2
       rect:
         serializedVersion: 2
-        x: 67
-        y: 1
-        width: 24
-        height: 26
+        x: 64
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,10 +233,10 @@ TextureImporter:
       name: Wall Jump (32x32)_3
       rect:
         serializedVersion: 2
-        x: 99
-        y: 1
-        width: 24
-        height: 26
+        x: 96
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,10 +255,10 @@ TextureImporter:
       name: Wall Jump (32x32)_4
       rect:
         serializedVersion: 2
-        x: 131
-        y: 1
-        width: 24
-        height: 26
+        x: 128
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,7 +277,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 68fff8b4f4f6d2e48b90a1bd967d7d00
     internalID: 0
     vertices: []
     indices: 
@@ -286,7 +286,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Wall Jump (32x32)_0: 3974224528455760076
+      Wall Jump (32x32)_1: 403085039841989221
+      Wall Jump (32x32)_2: -6018873884784744797
+      Wall Jump (32x32)_3: -674972067355074983
+      Wall Jump (32x32)_4: 4366178942990776957
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

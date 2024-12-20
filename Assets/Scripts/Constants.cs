@@ -20,4 +20,5 @@ public static class Constants
   public static readonly string anim_string_Y_VELOCITY = "yVelocity";
   public static readonly string anim_string_ISJUMPING = "IsJumping";
   public static readonly string anim_string_ISFALLING = "IsFalling";
+  public static readonly string anims_string_ISWALLSLIDING = "IsWallSliding";
 }
