@@ -21,4 +21,7 @@ public static class Constants
   public static readonly string anim_string_ISJUMPING = "IsJumping";
   public static readonly string anim_string_ISFALLING = "IsFalling";
   public static readonly string anims_string_ISWALLSLIDING = "IsWallSliding";
+
+  // other strin tags
+  public static readonly string player_tag = "Player";
 }
