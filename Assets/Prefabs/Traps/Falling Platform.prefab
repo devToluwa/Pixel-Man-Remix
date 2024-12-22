@@ -171,8 +171,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 248d2c77e73409f45aeb3d1097fb6855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerToFall: 3
   offScreenPositionToDestroy: -18
+  timerToFall: 3
+  colorToChangeTo: {r: 0, g: 0, b: 0, a: 0}
+  flashInterval: 0.1
+  flashDuration: 0.5
 --- !u!50 &3501864966254022496
 Rigidbody2D:
   serializedVersion: 5

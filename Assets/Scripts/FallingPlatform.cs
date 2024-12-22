@@ -4,13 +4,12 @@ using System.Collections;
 public class FallingPlatform : MonoBehaviour
 {
     private Rigidbody2D rb;
-
-    [SerializeField] private float timerToFall = 2f;
     [SerializeField] private float offScreenPositionToDestroy = -10f;
-    [SerializeField] private float shakeDuration = 0.5f;
-    [SerializeField] private float shakeMagnitutde = 0.1f;
+    [SerializeField] private float timerToFall = 2f;
 
-
+    [SerializeField] private Color colorToChangeTo;
+    [SerializeField] private float flashInterval = 0.1f;
+    [SerializeField] private float flashDuration = 0.5f;
 
     private void Awake()
     {
@@ -27,26 +26,25 @@ public class FallingPlatform : MonoBehaviour
 
     IEnumerator FallAndDestroy()
     {
-        // Shake the platform
-        Vector2 originalPosition = transform.position;
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        Color originalColor = sr.color;
+        Color flashColor = colorToChangeTo;
+
         float elapsedTime = 0f;
-        while (elapsedTime < shakeDuration)
+        // Flashing effect
+        while (elapsedTime < flashDuration)
         {
-            transform.position = originalPosition + (Vector2)Random.insideUnitCircle * shakeMagnitutde;
-            elapsedTime += Time.deltaTime;
-            yield return null;
+            sr.color = sr.color == originalColor ? flashColor : originalColor;
+            elapsedTime += flashInterval;
+            yield return new WaitForSeconds(flashInterval);
         }
-        transform.position = originalPosition; // reset to original position
+        sr.color = originalColor; // Reset to the original color
 
-        // wait before making platform fall, then make it fall
+        // Wait before making the platform fall
         yield return new WaitForSeconds(timerToFall);
-        rb.bodyType = RigidbodyType2D.Dynamic;
 
-        // Continuously monitor the platform's position
-        while (transform.position.y > offScreenPositionToDestroy)
-        {
-            yield return null; // Wait for the next frame
-        }
+
+        // Destroy the platform
         Destroy(gameObject);
     }
 }

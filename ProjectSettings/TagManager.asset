@@ -51,6 +51,9 @@ TagManager:
   - name: Player
     uniqueID: 3555302709
     locked: 0
+  - name: Interacteables
+    uniqueID: 1907313499
+    locked: 0
   - name: Wall
     uniqueID: 1516070051
     locked: 0

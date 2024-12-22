@@ -345,7 +345,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1516070051
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -69083,7 +69083,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000359de9d35191996bb91ff96fa3645d5aa749eb5c
+  m_ApplyToSortingLayers: 00000000359de9d35191996bb91ff96fa3645d5aa749eb5c5b4baf71
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -69130,6 +69130,111 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1056128933
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3391466357043103336, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
+      propertyPath: m_Name
+      value: Falling Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 3501864966254022496, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3501864966254022496, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3501864966254022496, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
+      propertyPath: m_GravityScale
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3501864966254022496, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615599006599404142, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615599006599404142, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615599006599404142, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615599006599404142, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615599006599404142, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615599006599404142, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615599006599404142, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615599006599404142, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615599006599404142, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615599006599404142, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024268021180132494, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024268021180132494, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
+      propertyPath: timerToFall
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024268021180132494, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
+      propertyPath: flashDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024268021180132494, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
+      propertyPath: flashInterval
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024268021180132494, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
+      propertyPath: shakeMagnitutde
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024268021180132494, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
+      propertyPath: colorToChangeTo.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024268021180132494, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
+      propertyPath: colorToChangeTo.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024268021180132494, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
+      propertyPath: colorToChangeTo.r
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 797c7ae09ce3d174da3c7d12dc8e6e33, type: 3}
 --- !u!1 &1319608910
 GameObject:
   m_ObjectHideFlags: 0
@@ -72077,6 +72182,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Player Visual [Virtual Guy]'
       objectReference: {fileID: 0}
+    - target: {fileID: 2082505034561690340, guid: 5d453f344d53f5944b185c26afa1f0a1, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -72151,3 +72260,4 @@ SceneRoots:
   - {fileID: 1883560184}
   - {fileID: 255346203}
   - {fileID: 1319608911}
+  - {fileID: 1056128933}
