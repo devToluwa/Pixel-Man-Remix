@@ -45,6 +45,9 @@ TagManager:
   - name: Background
     uniqueID: 1878597561
     locked: 0
+  - name: Trap Saw
+    uniqueID: 1102450411
+    locked: 0
   - name: Ground
     uniqueID: 1805226321
     locked: 0

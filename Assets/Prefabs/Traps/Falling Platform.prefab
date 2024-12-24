@@ -78,7 +78,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1907313499
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -7184453141422777021, guid: 08553ad7e8be2ee48b40b5e640603214, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -171,11 +171,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 248d2c77e73409f45aeb3d1097fb6855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offScreenPositionToDestroy: -18
-  timerToFall: 3
-  colorToChangeTo: {r: 0, g: 0, b: 0, a: 0}
-  flashInterval: 0.1
-  flashDuration: 0.5
+  timeBeforeFlashing: 2
+  timeTillDestroy: 1
+  flashInterval: 0.25
+  flashColorAlpha: 110
 --- !u!50 &3501864966254022496
 Rigidbody2D:
   serializedVersion: 5
@@ -184,22 +183,22 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3391466357043103336}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 6
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4

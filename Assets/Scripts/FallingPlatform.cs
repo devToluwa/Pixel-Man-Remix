@@ -4,16 +4,29 @@ using System.Collections;
 public class FallingPlatform : MonoBehaviour
 {
     private Rigidbody2D rb;
-    [SerializeField] private float offScreenPositionToDestroy = -10f;
-    [SerializeField] private float timerToFall = 2f;
+    private SpriteRenderer sr;
 
-    [SerializeField] private Color colorToChangeTo;
-    [SerializeField] private float flashInterval = 0.1f;
-    [SerializeField] private float flashDuration = 0.5f;
+    [SerializeField] private float timeBeforeFlashing;
+    [SerializeField] private float timeTillDestroy;
+
+    private Color flashColor;
+    private Color originalColor; // Declare this at the class level
+    [SerializeField] private float flashInterval;
+    [SerializeField] private int flashColorAlpha = 40;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        timeTillDestroy = timeTillDestroy + timeBeforeFlashing;
+
+        originalColor = sr.color; // Assign originalColor here
+        flashColor = originalColor;
+        flashColor.a = flashColorAlpha / 255f; // Alpha should be a float between 0 and 1
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -21,30 +34,37 @@ public class FallingPlatform : MonoBehaviour
         if (other.gameObject.CompareTag(Constants.player_tag))
         {
             StartCoroutine(FallAndDestroy());
+            StartCoroutine(FlashPlatformCoroutine());
         }
+    }
+
+    IEnumerator FlashPlatformCoroutine()
+    {
+        yield return new WaitForSeconds(timeBeforeFlashing);
+        float elapsedTime = 0f;
+
+        // flashing effect
+        while (elapsedTime < timeTillDestroy) // Use '<' to count up to timeTillDestroy
+        {
+            if (sr.color == originalColor) 
+            {
+                sr.color = flashColor; 
+            }
+            else 
+            { 
+                sr.color = originalColor; 
+            }
+
+            elapsedTime += flashInterval;
+            yield return new WaitForSeconds(flashInterval);
+        }
+
+        sr.color = originalColor; // Ensure platform returns to its original color
     }
 
     IEnumerator FallAndDestroy()
     {
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        Color originalColor = sr.color;
-        Color flashColor = colorToChangeTo;
-
-        float elapsedTime = 0f;
-        // Flashing effect
-        while (elapsedTime < flashDuration)
-        {
-            sr.color = sr.color == originalColor ? flashColor : originalColor;
-            elapsedTime += flashInterval;
-            yield return new WaitForSeconds(flashInterval);
-        }
-        sr.color = originalColor; // Reset to the original color
-
-        // Wait before making the platform fall
-        yield return new WaitForSeconds(timerToFall);
-
-
-        // Destroy the platform
+        yield return new WaitForSeconds(timeTillDestroy);
         Destroy(gameObject);
     }
 }
